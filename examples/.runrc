@@ -1,0 +1,4 @@
+#!/bin/bash
+file=$1
+if [[ $file =~  .rb$ ]]; then exec ruby $@; fi
+if [[ $file =~  .js$ ]]; then exec node $@; fi

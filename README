@@ -1,0 +1,30 @@
+# run
+
+run allows you to contextually run a program based on the arguments.
+I find this useful for running a number of different types of scripts with the same command in my IDE/Text editor.
+
+For example, I program in Ruby and Node.js. I want to use the same command to run my scripts, despite having to switch between two languages.
+All I need to do now is run:
+
+    run my_spec.rb
+
+In my .runrc file, I have a mapping between files with the extension .rb and ruby.
+
+Here is my ~/.runrc file.
+
+    #!/bin/bash
+    file=$1
+    if [[ $file =~  .rb$ ]]; then exec ruby $@; fi
+    if [[ $file =~  .js$ ]]; then exec node $@; fi
+
+run also allows you to configure a separate .runrc file in a directory-specific basis.
+For example, I'm working on my fork of the jasmine-node project (http://github.com/btakita/jasmine-node).
+In order to run specs, I need it to go through the specs.sh script within that project.
+
+To accomplish that, I create a .runrc file at the root of the project:
+
+    #!/bin/bash
+    file=$1
+    if [[ $file =~ .+Spec.js$ ]]; then exec ./specs.sh $@; fi
+
+When I run a file ending with 'Spec.js', it will exec that through specs.sh.
