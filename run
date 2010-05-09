@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ -e $(pwd)/.runrc ]; then
+  . $(pwd)/.runrc
+fi
+if [ -e $HOME/.runrc ]; then
+  . $HOME/.runrc
+fi
+
+$@
