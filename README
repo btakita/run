@@ -1,6 +1,6 @@
 # run
 
-run allows you to contextually run a program based on the arguments.
+run dispatches command line arguments to a program, based your configuration in your .runrc file(s).
 I find this useful for running a number of different types of scripts with the same command in my IDE/Text editor.
 
 For example, I program in Ruby and Node.js. I want to use the same command to run my scripts, despite having to switch between two languages.
