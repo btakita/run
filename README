@@ -1,4 +1,4 @@
-# run
+run - s/run/the-correct-program/ $@
 
 run dispatches command line arguments to a program, based your configuration in your .runrc file(s).
 I find this useful for running a number of different types of scripts with the same command in my IDE/Text editor.
