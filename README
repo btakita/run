@@ -20,7 +20,7 @@ Here is my ~/.runrc file.
     if [[ $file =~  .js$ ]]; then exec node $@; fi
 
 run also allows you to configure a separate .runrc file in a directory-specific basis.
-For example, I'm working on my fork (http://github.com/btakita/jasmine-node) of the jasmine-node project (http://github.com/mhevery/jasmine-node ).
+For example, I'm working on my fork (http://github.com/btakita/jasmine-node) of the jasmine-node project. 
 In order to run specs, I need it to go through the specs.sh script within that project.
 
 To accomplish that, I create a .runrc file at the root of the project:
