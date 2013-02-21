@@ -2,7 +2,7 @@ run
 
 s/run/the-correct-program/ $@
 
-run dispatches command line arguments to a program, based your configuration in your .runrc file(s).
+run dispatches command line arguments to a program, based on the files #!, then based your configuration in your .runrc file(s).
 I find this useful for running a number of different types of scripts with the same command in my IDE/Text editor.
 
 For example, I program in Ruby and Node.js. I want to use the same command to run my scripts, despite having to switch between two languages.
@@ -23,10 +23,7 @@ run also allows you to configure a separate .runrc file in a directory-specific 
 For example, I'm working on my fork (http://github.com/btakita/jasmine-node) of the jasmine-node project. 
 In order to run specs, I need it to go through the specs.sh script within that project.
 
-To accomplish that, I create a .runrc file at the root of the project:
+To accomplish that, I add the following to the top line of each spec:
 
-    #!/bin/bash
-    file=$1
-    if [[ $file =~ .+Spec.js$ ]]; then exec ./specs.sh $@; fi
+    #!/usr/bin/env jasmine-node --forceexit
 
-When I run a file ending with 'Spec.js', it will exec that through specs.sh.
