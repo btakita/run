@@ -1,10 +1,12 @@
 #!/bin/bash
 
 if [[ $(head -n1 $1 | grep '^#!') ]]; then
-  echo $(head -n1 $1 | grep '^#!' | sed 's/^#!//') $1 | sh
-elif [[ -e $(pwd)/.runrc ]]; then
+  exec $(head -n1 $1 | grep '^#!' | sed 's/^#!//') $1
+fi
+if [[ -e $(pwd)/.runrc ]]; then
   . $(pwd)/.runrc
-elif [[ -e $HOME/.runrc ]]; then
+fi
+if [[ -e $HOME/.runrc ]]; then
   . $HOME/.runrc
 fi
 
