@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [[ $(head -n1 $1 | grep '^#!') ]]; then
-  exec $(head -n1 $1 | grep '^#!' | sed 's/^#!//') $1
+  exec $(head -n1 $1 | grep '^#!' | sed 's/^#!//') $@
 fi
 if [[ -e $(pwd)/.runrc ]]; then
   . $(pwd)/.runrc
